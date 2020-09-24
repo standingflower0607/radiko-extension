@@ -1,0 +1,71 @@
+.material-icons {
+    color : #e73c64;
+    font-size: 4rem !important;
+    cursor: pointer;
+}
+#hiddenContainer{
+    position: absolute;
+    top: -9999px;  
+    left: -9999px;
+
+}
+
+#newSeekBar[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #ffdae7;
+  height: 2px;
+  width: 100%;
+  border-radius: 6px;
+}
+#newSeekBar:focus,:active {
+    outline: none;
+  }
+
+#newSeekBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: block;
+    border: 2px solid #fb5986;
+    background-color: #fff;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+  }
+
+
+#volumeSlider{
+    display:flex; 
+    align-items: center; 
+    flex-grow: 1; 
+    justify-content : flex-end; flex-basis: 200px; 
+    margin : 0; padding : 0;
+    font-size: 1rem;
+}
+
+#volume{
+    margin-right: 1rem;
+}
+
+#buttons{
+    display : flex; 
+    flex-direction : row;
+    
+}
+/* 元々idがあるやつ*/
+
+
+#stream-player{
+    display : flex; flex-direction : column; align-items : center; border:none;
+}
+#player-detail {
+    display:flex; align-items: center; position : static; flex-grow: 1; flex-basis: 200px;
+}
+
+#seekbar{
+    width: 201px;
+}
+

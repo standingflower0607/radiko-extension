@@ -1,0 +1,38 @@
+{
+    "name": "radiko-extension",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "description": "This extension enhance an usability of radiko for radiko user",
+    "content_scripts": [
+        {
+            "matches": [
+                "http://radiko.jp/*"
+            ],
+            "js": [
+                "js/loader.js"
+            ],
+            "css": [
+                "css/content.css"
+            ]
+        }
+    ],
+    "permissions": [
+        "declarativeContent",
+        "tabs",
+        "storage"
+    ],
+    "page_action": {
+        "default_title": "radiko-extension",
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "scripts": [
+            "js/background.js"
+        ],
+        "persistent": false
+    },
+    "web_accessible_resources": [
+        "js/content.js",
+        "js/jquery-3.5.1.min.js"
+    ]
+}
