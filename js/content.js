@@ -52,6 +52,7 @@ let replayTenButton = document.createElement("span");
 let skipThirtyButton = document.createElement("span");
 let replayThirtyButton = document.createElement("span");
 buttons.id = "buttons";
+newPlayButton.style.display = "none";
 newPlayButton.className = "material-icons";
 newPauseButton.className = "material-icons";
 skipTenButton.className = "material-icons";
@@ -74,10 +75,14 @@ buttons.appendChild(skipThirtyButton);
 
 newPlayButton.onclick = () => {
     window.$.Radiko.Player.View.onPlay();
+    newPauseButton.style.display = "block";
+    newPlayButton.style.display = "none";
 }
 
 newPauseButton.onclick = () => {
     window.$.Radiko.Player.View.onPause();
+    newPauseButton.style.display = "none";
+    newPlayButton.style.display = "block";
 }
 skipTenButton.onclick = () => {
     change_time(10);
@@ -92,15 +97,12 @@ replayThirtyButton.onclick = () => {
     change_time(-30)
 }
 
-
 // innerPlayer
 volumeSlider.id = "volumeSlider";
 
 innerPlayer.appendChild(buttons);
 innerPlayer.appendChild(volumeSlider);
-
-
-innerPlayer.style.cssText = "display : flex; flex-direction : row; align-items : center; justify-content : space-between; z-index  : 1;";
+innerPlayer.id = "innerPlayer";
 
 // hide playerArea and play/pause buttons
 let timeshiftBalloon = playerDetail.getElementsByClassName("tooltip")[0];
@@ -120,13 +122,16 @@ volumeSlider.appendChild(timeLeft);
 
 // create new seek bar
 let newSeekArea = document.createElement("div");
-let newSeekBar = document.createElement("input");
+let newSeekActiveBar = document.createElement("div");
+let newSeekBar = document.createElement("div");
+let newSeekKnob = document.createElement("span");
 newSeekArea.id = "newSeekArea";
+newSeekActiveBar.id = "newSeekActiveBar";
 newSeekBar.id = "newSeekBar";
-newSeekBar.type = "range";
-newSeekBar.min = 0;
-newSeekBar.max = defaultSeekBarWidth * 1000;
+newSeekKnob.id = "newSeekKnob"
 newSeekArea.style.cssText = "width : 100%; margin-top : -22px:"
+newSeekBar.appendChild(newSeekKnob);
+newSeekArea.appendChild(newSeekActiveBar);
 newSeekArea.appendChild(newSeekBar);
 streamPlayer.insertBefore(newSeekArea, innerPlayer);
 
@@ -150,6 +155,12 @@ const observerConfig = {
 };
 
 observer.observe(target, observerConfig);
+
+
+// TODO
+// スキップ
+// activebar(inputをdivに)
+// 再生ストップの切り替え(もともとの方を押したとき)
 
 
 

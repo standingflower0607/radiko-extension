@@ -9,13 +9,28 @@
     left: -9999px;
 
 }
+#innerPlayer{
+    display : flex;
+     flex-direction : row; 
+     align-items : center; 
+     justify-content : space-between;
+    width : 95% !important;
+}
+#newSeekArea{
+    display: flex;
+    justify-content:center ;
+}
+#newSeekActiveBar { 
+    height: 2px;
+    background-color: #e73c64;
+    transform-origin: left;
+}
 
 #newSeekBar[type="range"] {
   -webkit-appearance: none;
   appearance: none;
   background-color: #ffdae7;
   height: 2px;
-  width: 100%;
   border-radius: 6px;
 }
 #newSeekBar:focus,:active {
@@ -35,7 +50,11 @@
     border-radius: 50%;
     -webkit-border-radius: 50%;
   }
-
+#newSeekKnob{
+    height: 2px;
+    border-radius: 50%;
+    background-color: #e73c64;
+}
 
 #volumeSlider{
     display:flex; 
